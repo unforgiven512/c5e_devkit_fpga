@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system name="$${FILENAME}">
+ <component
+   name="$${FILENAME}"
+   displayName="$${FILENAME}"
+   version="1.0"
+   description=""
+   tags=""
+   categories="System" />
+ <parameter name="bonusData"><![CDATA[bonusData 
+{
+   element $${FILENAME}
+   {
+   }
+   element dispatcher_write.CSR
+   {
+      datum baseAddress
+      {
+         value = "96";
+         type = "long";
+      }
+   }
+   element dispatcher_read.CSR
+   {
+      datum baseAddress
+      {
+         value = "128";
+         type = "long";
+      }
+   }
+   element dispatcher_read.Descriptor_Slave
+   {
+      datum baseAddress
+      {
+         value = "176";
+         type = "long";
+      }
+   }
+   element dispatcher_write.Descriptor_Slave
+   {
+      datum baseAddress
+      {
+         value = "160";
+         type = "long";
+      }
+   }
+   element clk
+   {
+      datum _sortIndex
+      {
+         value = "8";
+         type = "int";
+      }
+   }
+   element clk_0
+   {
+      datum _sortIndex
+      {
+         value = "12";
+         type = "int";
+      }
+   }
+   element prbs_pattern_checker.clock
+   {
+      datum _tags
+      {
+         value = "";
+         type = "String";
+      }
+   }
+   element prbs_pattern_checker.csr
+   {
+      datum baseAddress
+      {
+         value = "0";
+         type = "long";
+      }
+   }
+   element frequency_counter_0.csr
+   {
+      datum baseAddress
+      {
+         value = "589824";
+         type = "long";
+      }
+   }
+   element prbs_pattern_generator.csr
+   {
+      datum baseAddress
+      {
+         value = "64";
+         type = "long";
+      }
+   }
+   element dispatcher_read
+   {
+      datum _sortIndex
+      {
+         value = "7";
+         type = "int";
+      }
+   }
+   element dispatcher_write
+   {
+      datum _sortIndex
+      {
+         value = "4";
+         type = "int";
+      }
+   }
+   element dma_read_master
+   {
+      datum _sortIndex
+      {
+         value = "6";
+         type = "int";
+      }
+   }
+   element dma_write_master
+   {
+      datum _sortIndex
+      {
+         value = "3";
+         type = "int";
+      }
+   }
+   element frequency_counter_0
+   {
+      datum _sortIndex
+      {
+         value = "10";
+         type = "int";
+      }
+   }
+   element mm_bridge_slv
+   {
+      datum _sortIndex
+      {
+         value = "0";
+         type = "int";
+      }
+   }
+   element prbs_pattern_checker
+   {
+      datum _sortIndex
+      {
+         value = "5";
+         type = "int";
+      }
+   }
+   element prbs_pattern_generator
+   {
+      datum _sortIndex
+      {
+         value = "1";
+         type = "int";
+      }
+   }
+   element timer_0.s1
+   {
+      datum baseAddress
+      {
+         value = "528384";
+         type = "long";
+      }
+   }
+   element status_mon_0.slv
+   {
+      datum baseAddress
+      {
+         value = "528896";
+         type = "long";
+      }
+   }
+   element status_mon_0
+   {
+      datum _sortIndex
+      {
+         value = "9";
+         type = "int";
+      }
+   }
+   element timer_0
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+   }
+   element timing_adapter
+   {
+      datum _sortIndex
+      {
+         value = "2";
+         type = "int";
+      }
+   }
+}
+]]></parameter>
+ <parameter name="clockCrossingAdapter" value="AUTO" />
+ <parameter name="device" value="5CEFA7F31C7ES" />
+ <parameter name="deviceFamily" value="Cyclone V" />
+ <parameter name="deviceSpeedGrade" value="7" />
+ <parameter name="fabricMode" value="QSYS" />
+ <parameter name="generateLegacySim" value="false" />
+ <parameter name="generationId" value="0" />
+ <parameter name="globalResetBus" value="false" />
+ <parameter name="hdlLanguage" value="VERILOG" />
+ <parameter name="maxAdditionalLatency" value="4" />
+ <parameter name="projectName" value="bts_ddr3_x32.qpf" />
+ <parameter name="sopcBorderPoints" value="false" />
+ <parameter name="systemHash" value="1" />
+ <parameter name="timeStamp" value="1357911176195" />
+ <parameter name="useTestBenchNamingPattern" value="false" />
+ <instanceScript></instanceScript>
+ <interface
+   name="mm_bridge_slv"
+   internal="mm_bridge_slv.s0"
+   type="avalon"
+   dir="end" />
+ <interface name="reset" internal="clk.clk_in_reset" type="reset" dir="end" />
+ <interface name="clk" internal="clk.clk_in" type="clock" dir="end" />
+ <interface
+   name="dma_read_master"
+   internal="dma_read_master.Data_Read_Master"
+   type="avalon"
+   dir="start" />
+ <interface
+   name="dma_write_master"
+   internal="dma_write_master.Data_Write_Master"
+   type="avalon"
+   dir="start" />
+ <interface
+   name="dispatcher_write_csr_irq"
+   internal="dispatcher_write.csr_irq"
+   type="interrupt"
+   dir="end" />
+ <interface
+   name="dispatcher_read_csr_irq"
+   internal="dispatcher_read.csr_irq"
+   type="interrupt"
+   dir="end" />
+ <interface name="clk_0" internal="clk_0.clk_in" type="clock" dir="end" />
+ <interface name="reset_0" internal="clk_0.clk_in_reset" type="reset" dir="end" />
+ <interface
+   name="status_mon_out"
+   internal="status_mon_0.conduit_end"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="status_mon_in"
+   internal="status_mon_0.status"
+   type="conduit"
+   dir="end" />
+ <interface
+   name="reset_source"
+   internal="status_mon_0.reset_source"
+   type="reset"
+   dir="start" />
+ <module
+   kind="prbs_pattern_generator"
+   version="1.1"
+   enabled="1"
+   name="prbs_pattern_generator">
+  <parameter name="DATA_WIDTH" value="64" />
+  <parameter name="PRBS_WIDTH" value="32" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="150000000" />
+ </module>
+ <module
+   kind="prbs_pattern_checker"
+   version="1.1"
+   enabled="1"
+   name="prbs_pattern_checker">
+  <parameter name="DATA_WIDTH" value="64" />
+  <parameter name="PRBS_WIDTH" value="32" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="150000000" />
+ </module>
+ <module
+   kind="dma_write_master"
+   version="1.0"
+   enabled="1"
+   name="dma_write_master">
+  <parameter name="DATA_WIDTH" value="64" />
+  <parameter name="LENGTH_WIDTH" value="31" />
+  <parameter name="FIFO_DEPTH" value="128" />
+  <parameter name="STRIDE_ENABLE" value="0" />
+  <parameter name="GUI_STRIDE_WIDTH" value="1" />
+  <parameter name="BURST_ENABLE" value="1" />
+  <parameter name="GUI_MAX_BURST_COUNT" value="32" />
+  <parameter name="GUI_PROGRAMMABLE_BURST_ENABLE" value="0" />
+  <parameter name="GUI_BURST_WRAPPING_SUPPORT" value="0" />
+  <parameter name="TRANSFER_TYPE">Full Word Accesses Only</parameter>
+  <parameter name="PACKET_ENABLE" value="0" />
+  <parameter name="ERROR_ENABLE" value="0" />
+  <parameter name="ERROR_WIDTH" value="8" />
+  <parameter name="ADDRESS_WIDTH" value="32" />
+  <parameter name="FIFO_SPEED_OPTIMIZATION" value="1" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="150000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+ </module>
+ <module
+   kind="modular_sgdma_dispatcher"
+   version="1.0"
+   enabled="1"
+   name="dispatcher_write">
+  <parameter name="MODE" value="2" />
+  <parameter name="GUI_RESPONSE_PORT" value="2" />
+  <parameter name="DESCRIPTOR_FIFO_DEPTH" value="8" />
+  <parameter name="ENHANCED_FEATURES" value="0" />
+  <parameter name="CSR_ADDRESS_WIDTH" value="3" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="150000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+ </module>
+ <module
+   kind="dma_read_master"
+   version="1.0"
+   enabled="1"
+   name="dma_read_master">
+  <parameter name="DATA_WIDTH" value="64" />
+  <parameter name="LENGTH_WIDTH" value="31" />
+  <parameter name="FIFO_DEPTH" value="128" />
+  <parameter name="STRIDE_ENABLE" value="0" />
+  <parameter name="GUI_STRIDE_WIDTH" value="1" />
+  <parameter name="BURST_ENABLE" value="1" />
+  <parameter name="GUI_MAX_BURST_COUNT" value="32" />
+  <parameter name="GUI_PROGRAMMABLE_BURST_ENABLE" value="0" />
+  <parameter name="GUI_BURST_WRAPPING_SUPPORT" value="0" />
+  <parameter name="TRANSFER_TYPE">Full Word Accesses Only</parameter>
+  <parameter name="PACKET_ENABLE" value="0" />
+  <parameter name="ERROR_ENABLE" value="0" />
+  <parameter name="ERROR_WIDTH" value="8" />
+  <parameter name="CHANNEL_ENABLE" value="0" />
+  <parameter name="CHANNEL_WIDTH" value="8" />
+  <parameter name="ADDRESS_WIDTH" value="32" />
+  <parameter name="FIFO_SPEED_OPTIMIZATION" value="1" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="150000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+ </module>
+ <module
+   kind="modular_sgdma_dispatcher"
+   version="1.0"
+   enabled="1"
+   name="dispatcher_read">
+  <parameter name="MODE" value="1" />
+  <parameter name="GUI_RESPONSE_PORT" value="0" />
+  <parameter name="DESCRIPTOR_FIFO_DEPTH" value="8" />
+  <parameter name="ENHANCED_FEATURES" value="0" />
+  <parameter name="CSR_ADDRESS_WIDTH" value="3" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="150000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+ </module>
+ <module
+   kind="timing_adapter"
+   version="12.1"
+   enabled="1"
+   name="timing_adapter">
+  <parameter name="generationLanguage" value="VERILOG" />
+  <parameter name="inBitsPerSymbol" value="8" />
+  <parameter name="inChannelWidth" value="0" />
+  <parameter name="inErrorDescriptor" value="" />
+  <parameter name="inErrorWidth" value="0" />
+  <parameter name="inMaxChannel" value="0" />
+  <parameter name="inReadyLatency" value="1" />
+  <parameter name="inSymbolsPerBeat" value="8" />
+  <parameter name="inUseEmpty" value="false" />
+  <parameter name="inUseEmptyPort" value="AUTO" />
+  <parameter name="inUsePackets" value="false" />
+  <parameter name="inUseReady" value="true" />
+  <parameter name="inUseValid" value="true" />
+  <parameter name="moduleName" value="" />
+  <parameter name="outReadyLatency" value="0" />
+  <parameter name="outUseReady" value="true" />
+  <parameter name="outUseValid" value="true" />
+ </module>
+ <module
+   kind="altera_avalon_mm_bridge"
+   version="12.1"
+   enabled="1"
+   name="mm_bridge_slv">
+  <parameter name="DATA_WIDTH" value="32" />
+  <parameter name="SYMBOL_WIDTH" value="8" />
+  <parameter name="ADDRESS_WIDTH" value="20" />
+  <parameter name="ADDRESS_UNITS" value="SYMBOLS" />
+  <parameter name="MAX_BURST_SIZE" value="1" />
+  <parameter name="MAX_PENDING_RESPONSES" value="4" />
+  <parameter name="LINEWRAPBURSTS" value="0" />
+  <parameter name="PIPELINE_COMMAND" value="1" />
+  <parameter name="PIPELINE_RESPONSE" value="1" />
+  <parameter name="AUTO_CLK_CLOCK_RATE" value="150000000" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+ </module>
+ <module kind="clock_source" version="12.1" enabled="1" name="clk">
+  <parameter name="clockFrequency" value="150000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <module kind="status_mon" version="1.0" enabled="1" name="status_mon_0">
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="150000000" />
+ </module>
+ <module
+   kind="frequency_counter"
+   version="1.0"
+   enabled="1"
+   name="frequency_counter_0">
+  <parameter name="SYSTEM_CLK_FREQ_PICO_SEC" value="20000" />
+  <parameter name="AUTO_CLOCK_CLOCK_RATE" value="50000000" />
+  <parameter name="AUTO_SAMPLE_CLK_CLOCK_RATE" value="150000000" />
+ </module>
+ <module kind="altera_avalon_timer" version="12.1" enabled="1" name="timer_0">
+  <parameter name="alwaysRun" value="false" />
+  <parameter name="counterSize" value="32" />
+  <parameter name="fixedPeriod" value="false" />
+  <parameter name="period" value="1" />
+  <parameter name="periodUnits" value="MSEC" />
+  <parameter name="resetOutput" value="false" />
+  <parameter name="snapshot" value="true" />
+  <parameter name="systemFrequency" value="50000000" />
+  <parameter name="timeoutPulseOutput" value="false" />
+  <parameter name="timerPreset" value="CUSTOM" />
+ </module>
+ <module kind="clock_source" version="12.1" enabled="1" name="clk_0">
+  <parameter name="clockFrequency" value="50000000" />
+  <parameter name="clockFrequencyKnown" value="true" />
+  <parameter name="inputClockFrequency" value="0" />
+  <parameter name="resetSynchronousEdges" value="NONE" />
+ </module>
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="prbs_pattern_generator.st_pattern_output"
+   end="timing_adapter.in" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="timing_adapter.out"
+   end="dma_write_master.Data_Sink" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="dispatcher_write.Write_Command_Source"
+   end="dma_write_master.Command_Sink" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="dma_write_master.Response_Source"
+   end="dispatcher_write.Write_Response_Sink" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="dma_read_master.Data_Source"
+   end="prbs_pattern_checker.st_pattern_input" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="dispatcher_read.Read_Command_Source"
+   end="dma_read_master.Command_Sink" />
+ <connection
+   kind="avalon_streaming"
+   version="12.1"
+   start="dma_read_master.Response_Source"
+   end="dispatcher_read.Read_Response_Sink" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="prbs_pattern_generator.csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0040" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="dispatcher_write.CSR">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0060" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="dispatcher_write.Descriptor_Slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00a0" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="prbs_pattern_checker.csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0000" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="dispatcher_read.CSR">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0080" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="dispatcher_read.Descriptor_Slave">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00b0" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="dispatcher_read.clock_reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="dma_read_master.Clock_reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="prbs_pattern_checker.reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="dispatcher_write.clock_reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="dma_write_master.Clock_reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="timing_adapter.reset" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="prbs_pattern_generator.reset" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="dispatcher_read.clock" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="dma_read_master.Clock" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="prbs_pattern_checker.clock" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="dispatcher_write.clock" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="dma_write_master.Clock" />
+ <connection kind="clock" version="12.1" start="clk.clk" end="timing_adapter.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="prbs_pattern_generator.clock" />
+ <connection kind="clock" version="12.1" start="clk.clk" end="mm_bridge_slv.clk" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="mm_bridge_slv.reset" />
+ <connection kind="clock" version="12.1" start="clk_0.clk" end="timer_0.clk" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk_0.clk"
+   end="frequency_counter_0.clock" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk_0.clk_reset"
+   end="frequency_counter_0.reset" />
+ <connection kind="clock" version="12.1" start="clk.clk" end="status_mon_0.clock" />
+ <connection
+   kind="clock"
+   version="12.1"
+   start="clk.clk"
+   end="frequency_counter_0.sample_clk" />
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk.clk_reset"
+   end="status_mon_0.reset_n" />
+ <connection kind="reset" version="12.1" start="clk.clk_reset" end="timer_0.reset" />
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="status_mon_0.slv">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00081200" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="frequency_counter_0.csr">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00090000" />
+ </connection>
+ <connection
+   kind="avalon"
+   version="12.1"
+   start="mm_bridge_slv.m0"
+   end="timer_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x00081000" />
+ </connection>
+ <connection
+   kind="reset"
+   version="12.1"
+   start="clk_0.clk_reset"
+   end="frequency_counter_0.sample_reset_n" />
+</system>

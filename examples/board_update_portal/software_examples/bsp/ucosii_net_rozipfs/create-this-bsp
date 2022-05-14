@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# This script creates the ucosii Board Support Package (BSP) for web_server
+
+BSP_TYPE=ucosii
+BSP_DIR=.
+SOPC_DIR=../../..
+
+# Run nios2-bsp utility to create a HAL BSP in this directory
+# for the system with a .sopc file in $SOPC_DIR.
+cmd="nios2-bsp $BSP_TYPE $BSP_DIR $SOPC_DIR --default_sections_mapping ssram --cmd enable_sw_package altera_ro_zipfs --set altera_ro_zipfs.ro_zipfs_offset 0x17C0000 --set altera_ro_zipfs.ro_zipfs_base 0x0 --cmd enable_sw_package altera_iniche --set altera_iniche.iniche_default_if tse_mac --set altera_iniche.enable_net_stats true --set hal.make.bsp_cflags_optimization -O0 --debug"
+
+echo "create-this-bsp: Running \"$cmd\""
+$cmd || {
+    echo "$cmd failed"
+    exit 1
+}
+
+#echo "create-this-bsp: Running make"
+make

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<registration_data version="1.0">
+   <environment>
+      <hostname>SC-ELECHNER-HP</hostname>
+      <hostId/>
+      <osName>Windows XP</osName>
+      <osVersion>5.2</osVersion>
+      <osArchitecture>x86</osArchitecture>
+      <systemModel>HP xw4600 Workstation</systemModel>
+      <systemManufacturer>Hewlett-Packard</systemManufacturer>
+      <cpuManufacturer>GenuineIntel</cpuManufacturer>
+      <serialNumber>2UA8421DHQ</serialNumber>
+   </environment>
+   <registry urn="urn:st:251a595e-8db2-4840-8c5e-bf82127594de" version="1.0">
+      <service_tag>
+         <instance_urn>urn:st:79eda98a-af8a-4dfb-a159-0d89b3b6774b</instance_urn>
+         <product_name>Java SE 6 Runtime Environment</product_name>
+         <product_version>1.6.0_23</product_version>
+         <product_urn>urn:uuid:92d1de8c-1e59-42c6-a280-1c379526bcbc</product_urn>
+         <product_parent_urn>urn:uuid:fdc90b21-018d-4cab-b866-612c7c119ed3</product_parent_urn>
+         <product_parent>Java Platform Standard Edition 6 (Java SE 6)</product_parent>
+         <product_defined_inst_id>id=1.6.0_23-b05 x86,dir=D:\Program Files (x86)\java\jre6</product_defined_inst_id>
+         <product_vendor>Sun Microsystems</product_vendor>
+         <platform_arch>x86</platform_arch>
+         <timestamp>2011-01-27 00:54:23 GMT</timestamp>
+         <container>global</container>
+         <source>Windows JRE installer</source>
+         <installer_uid>-1</installer_uid>
+      </service_tag>
+   </registry>
+</registration_data>

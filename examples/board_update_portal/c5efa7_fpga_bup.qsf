@@ -1,0 +1,216 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2012 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 12.1 Build 177 11/07/2012 SJ Full Version
+# Date created = 17:28:31  Nov 04, 2012
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		c5efa7_fpga_bup_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CEFA7F31I7
+set_global_assignment -name TOP_LEVEL_ENTITY c5efa7_fpga_bup_top
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 12.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:28:31  JULY 04, 2012"
+set_global_assignment -name LAST_QUARTUS_VERSION "12.1 SP1"
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 896
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+
+set_location_assignment PIN_AA26 -to cpu_resetn
+set_location_assignment PIN_F16 -to fsm_d[0]
+set_location_assignment PIN_E16 -to fsm_d[1]
+set_location_assignment PIN_M9 -to fsm_d[2]
+set_location_assignment PIN_M8 -to fsm_d[3]
+set_location_assignment PIN_F15 -to fsm_d[4]
+set_location_assignment PIN_E15 -to fsm_d[5]
+set_location_assignment PIN_E12 -to fsm_d[6]
+set_location_assignment PIN_D13 -to fsm_d[7]
+set_location_assignment PIN_J15 -to fsm_d[8]
+set_location_assignment PIN_H15 -to fsm_d[9]
+set_location_assignment PIN_E11 -to fsm_d[10]
+set_location_assignment PIN_D10 -to fsm_d[11]
+set_location_assignment PIN_L10 -to fsm_d[12]
+set_location_assignment PIN_L9 -to fsm_d[13]
+set_location_assignment PIN_G14 -to fsm_d[14]
+set_location_assignment PIN_F14 -to fsm_d[15]
+set_location_assignment PIN_B11 -to fsm_a[1]
+set_location_assignment PIN_A11 -to fsm_a[2]
+set_location_assignment PIN_D9 -to fsm_a[3]
+set_location_assignment PIN_C10 -to fsm_a[4]
+set_location_assignment PIN_A10 -to fsm_a[5]
+set_location_assignment PIN_A9 -to fsm_a[6]
+set_location_assignment PIN_C9 -to fsm_a[7]
+set_location_assignment PIN_B8 -to fsm_a[8]
+set_location_assignment PIN_B7 -to fsm_a[9]
+set_location_assignment PIN_A8 -to fsm_a[10]
+set_location_assignment PIN_B6 -to fsm_a[11]
+set_location_assignment PIN_A6 -to fsm_a[12]
+set_location_assignment PIN_C7 -to fsm_a[13]
+set_location_assignment PIN_C6 -to fsm_a[14]
+set_location_assignment PIN_F13 -to fsm_a[15]
+set_location_assignment PIN_E13 -to fsm_a[16]
+set_location_assignment PIN_A5 -to fsm_a[17]
+set_location_assignment PIN_A4 -to fsm_a[18]
+set_location_assignment PIN_J7 -to fsm_a[19]
+set_location_assignment PIN_H7 -to fsm_a[20]
+set_location_assignment PIN_J9 -to fsm_a[21]
+set_location_assignment PIN_H9 -to fsm_a[22]
+set_location_assignment PIN_G9 -to fsm_a[23]
+set_location_assignment PIN_L11 -to flash_oen
+set_location_assignment PIN_P12 -to flash_wen
+set_location_assignment PIN_H12 -to flash_advn
+set_location_assignment PIN_N12 -to flash_clk
+set_location_assignment PIN_K11 -to flash_resetn
+set_location_assignment PIN_G29 -to enet_mdc
+set_location_assignment PIN_L25 -to enet_mdio
+set_location_assignment PIN_N22 -to enet_resetn
+set_location_assignment PIN_J28 -to enet_tx_d[0]
+set_location_assignment PIN_J29 -to enet_tx_d[1]
+set_location_assignment PIN_H29 -to enet_tx_d[2]
+set_location_assignment PIN_H30 -to enet_tx_d[3]
+set_location_assignment PIN_N26 -to enet_rx_d[0]
+set_location_assignment PIN_N27 -to enet_rx_d[1]
+set_location_assignment PIN_N24 -to enet_rx_d[2]
+set_location_assignment PIN_N25 -to enet_rx_d[3]
+set_location_assignment PIN_F30 -to enet_tx_en
+set_location_assignment PIN_L26 -to enet_rx_dv
+set_location_assignment PIN_T23 -to enet_rx_clk
+set_location_assignment PIN_H27 -to enet_gtx_clk
+set_location_assignment PIN_AJ7 -to lcd_data[0]
+set_location_assignment PIN_AK7 -to lcd_data[1]
+set_location_assignment PIN_AJ8 -to lcd_data[2]
+set_location_assignment PIN_AK8 -to lcd_data[3]
+set_location_assignment PIN_AF9 -to lcd_data[4]
+set_location_assignment PIN_AG9 -to lcd_data[5]
+set_location_assignment PIN_AH9 -to lcd_data[6]
+set_location_assignment PIN_AJ9 -to lcd_data[7]
+set_location_assignment PIN_AK11 -to lcd_d_cn
+set_location_assignment PIN_AK10 -to lcd_wen
+set_location_assignment PIN_AJ12 -to lcd_en
+set_location_assignment PIN_Y12 -to user_dipsw[0]
+set_location_assignment PIN_AA13 -to user_dipsw[1]
+set_location_assignment PIN_AF11 -to user_dipsw[2]
+set_location_assignment PIN_AG11 -to user_dipsw[3]
+set_location_assignment PIN_AK3 -to user_led[0]
+set_location_assignment PIN_AJ4 -to user_led[1]
+set_location_assignment PIN_AJ5 -to user_led[2]
+set_location_assignment PIN_AK6 -to user_led[3]
+set_location_assignment PIN_AB12 -to user_pb[0]
+set_location_assignment PIN_AB13 -to user_pb[1]
+set_location_assignment PIN_AF13 -to user_pb[2]
+set_location_assignment PIN_H14 -to flash_cen
+set_location_assignment PIN_K10 -to ssram_clk
+set_location_assignment PIN_D7 -to ssram_cen
+set_location_assignment PIN_A3 -to ssram_bwn[0]
+set_location_assignment PIN_A2 -to ssram_bwn[1]
+set_location_assignment PIN_L14 -to clkin_50
+
+set_instance_assignment -name GLOBAL_SIGNAL ON -to ref_clk -entity c5gxfc7_fpga_bup -disable
+set_instance_assignment -name GLOBAL_SIGNAL "GLOBAL CLOCK" -to tx_clk_to_the_tse_mac -entity c5gxfc7_fpga_bup -disable
+
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to rx_control -entity c5gxfc7_fpga_bup -disable
+set_instance_assignment -name FAST_INPUT_REGISTER ON -to rgmii_in -entity c5gxfc7_fpga_bup -disable
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to tx_control -entity c5gxfc7_fpga_bup -disable
+set_instance_assignment -name FAST_OUTPUT_REGISTER ON -to rgmii_out -entity c5gxfc7_fpga_bup -disable
+
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION OFF
+set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION AUTO
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM
+set_global_assignment -name AUTO_PACKED_REGISTERS_STRATIXII AUTO
+set_global_assignment -name ROUTER_CLOCKING_TOPOLOGY_ANALYSIS ON
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
+set_global_assignment -name STATE_MACHINE_PROCESSING "ONE-HOT"
+set_global_assignment -name MUX_RESTRUCTURE OFF
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
+set_global_assignment -name FITTER_EFFORT "AUTO FIT"
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC_FOR_AREA OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_MAP_LOGIC_TO_MEMORY_FOR_AREA OFF
+set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_EFFORT NORMAL
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING OFF
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name SEARCH_PATH c5gxfc7_fpga_bup_qsys/synthesis/ -tag from_archive
+set_global_assignment -name SEARCH_PATH c5gxfc7_fpga_bup_qsys/synthesis/submodules/ -tag from_archive
+
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
+set_global_assignment -name SEED 2
+set_global_assignment -name TIMEQUEST_MULTICORNER_ANALYSIS OFF
+set_global_assignment -name TIMEQUEST_DO_REPORT_TIMING ON
+set_global_assignment -name TIMEQUEST_DO_CCPP_REMOVAL ON
+set_location_assignment PIN_F8 -to fsm_a[24]
+set_location_assignment PIN_E8 -to fsm_a[25]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_pb[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_pb[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_pb[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_led[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_led[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_led[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_led[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_dipsw[3]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_dipsw[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to user_dipsw[1]
+set_location_assignment PIN_E7 -to ssram_oen
+set_location_assignment PIN_D6 -to ssram_wen
+set_location_assignment PIN_AG12 -to user_pb[3]
+set_location_assignment PIN_J10 -to ssram_adsp_n
+set_location_assignment PIN_G6 -to ssram_adv_n
+set_location_assignment PIN_F6 -to ssram_zz
+set_location_assignment PIN_E6 -to ssram_adsc_n
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name VIRTUAL_PIN ON -to fsm_a[0]
+set_instance_assignment -name GLOBAL_SIGNAL "GLOBAL CLOCK" -to clkin_50
+set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to enet*
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to enet_rx_clk
+set_instance_assignment -name GLOBAL_SIGNAL OFF -to *altera_tse_reset_synchronizer*reset*
+set_instance_assignment -name PLL_COMPENSATION_MODE NORMAL -to "*pll_0002:pll_inst|altera_pll:altera_pll_i|fboutclk_wire[0]" -qip pll/pll_0002.qip
+set_instance_assignment -name PLL_AUTO_RESET OFF -to "*pll_0002:pll_inst|altera_pll:altera_pll_i" -qip pll/pll_0002.qip
+set_instance_assignment -name PLL_BANDWIDTH_PRESET AUTO -to "*pll_0002:pll_inst|altera_pll:altera_pll_i" -qip pll/pll_0002.qip
+set_global_assignment -name SDC_FILE c5efa7_fpga_bup.sdc
+set_global_assignment -name VERILOG_FILE c5efa7_fpga_bup_top.v
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
+set_global_assignment -name QIP_FILE c5efa7_fpga_bup_qsys/synthesis/c5efa7_fpga_bup_qsys.qip
+set_global_assignment -name QIP_FILE c5efa7_fpga_bup_qsys/synthesis/submodules/c5efa7_fpga_bup_qsys_pll.qip
+set_global_assignment -name QIP_FILE c5efa7_fpga_bup_qsys/synthesis/submodules/c5efa7_fpga_bup_qsys_enet_pll.qip
+set_global_assignment -name QIP_FILE enet_gtx_clk_ddio_buffer.qip

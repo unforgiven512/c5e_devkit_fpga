@@ -1,0 +1,63 @@
+Altera Hardware Reference Design License Agreement
+
+PLEASE REVIEW THE FOLLOWING TERMS AND CONDITIONS CAREFULLY BEFORE DOWNLOADING OR USING THIS ALTERA HARDWARE REFERENCE DESIGN. BY DOWNLOADING OR USING THIS HARDWARE REFERENCE DESIGN, YOU INDICATE YOUR ACCEPTANCE OF THESE TERMS AND CONDITIONS, WHICH CONSTITUTE THE LICENSE AGREEMENT (the "AGREEMENT") BETWEEN YOU AND ALTERA CORPORATION AND ALTERA'S SUBSIDIARIES ("ALTERA"). IN THE EVENT THAT YOU DO NOT AGREE WITH ANY OF THESE TERMS AND CONDITIONS, DO NOT DOWNLOAD, COPY, OR USE THIS REFERENCE DESIGN.  THE REFERENCE DESIGN IS GOVERNED SOLELY BY THIS AGREEMENT AND NOT BY ANY OTHER AGREEMENT OR LICENSE THAT YOU MAY HAVE WITH ALTERA, UNLESS SIGNED BY AN AUTHORIZED OFFICER OF ALTERA. 
+
+IF YOU WISH TO PRINT OUT THIS AGREEMENT, YOU SHOULD HIGHLIGHT THIS TEXT, RIGHT-CLICK, SELECT "COPY" THEN "PASTE" IT INTO A DOCUMENT IN YOUR WORD PROCESSING PROGRAM.
+
+Altera Device (s): 	means programmable logic devices and mask-programmable logic devices designed, developed or manufactured by ALTERA. 
+
+Reference Design:	means one or more hardware reference design files in source code format (including simulation models (VHDL and Verilog HDL)) each designed to implement a specific logic function into an Altera Device that are offered free-of-charge by ALTERA; but expressly excluding any MegaCore(r) logic functions, any design files provided in encrypted netlist or encrypted source code formats and any design files provided under Altera's OpenCore and OpenCore(r) Plus programs, which are subject to other applicable license agreements.  
+
+Licensed Products: 	means Altera Device(s) into which the Reference Design has been incorporated pursuant to the terms of this License. 
+
+Licensee:		means YOU. 
+
+1.0 License to the Reference Design: 
+
+1.1	Subject to the terms and conditions of this Agreement, ALTERA grants to LICENSEE a single user, non-transferable, non-exclusive, perpetual license to use the Reference Design in accordance with Section 1.2. The Reference Design, and the algorithms, concepts, techniques, methods and processes embodied therein, are proprietary to ALTERA and its Licensors.  ALTERA and its Licensors retain all rights with respect to the Reference Design, including any copyright, patent, and other proprietary rights, not expressly granted herein.
+
+1.2 LICENSEE may:
+
+(a)	design with, parameterize, compile, and route the Reference Design;
+
+(b)	modify such Reference Design and create derivative works thereof; and 
+
+(c)	program Altera Devices with the Reference Design; LICENSEE is expressly prohibited from using the Reference Design, in whole or part, or as modified by LICENSEE, to program any programmable logic devices, field programmable gate arrays, application specific integrated circuits, application specific standard products or integrated circuits other than Altera Devices;
+
+1.3	The Reference Design(s) may be used by any employee of LICENSEE. The Reference Design(s) may not be copied to, installed on or used with any other computer, or accessed or otherwise used over any network, without prior written approval from ALTERA.
+
+1.4	Any copies of the Reference Design made by LICENSEE under this Agreement shall include all intellectual property notices, including copyright and proprietary rights notices, appearing on such Reference Design. Any copy or portion of the Reference Design, including any derivative works thereof, including any portion merged into a design and any design or product that incorporates any portion of the Reference Design, will continue to be subject to the terms and conditions of this Agreement.
+
+1.5	Except as otherwise provided in Section 10.0, LICENSEE may use, distribute, sell, and or otherwise market Licensed Products developed in accordance with this Agreement to any third party in perpetuity. LICENSEE may also sublicense its right to use and distribute Licensed Products as necessary to permit LICENSEE's distributors to distribute and LICENSEE's customers to use Licensed Products.
+
+2.0	Reference Design License Restrictions: LICENSEE MAY NOT USE, COPY, MODIFY, DISTRIBUTE, SUBLICENSE OR TRANSFER THE REFERENCE DESIGN, OR MERGED OR COMBINED PORTION THEREOF, IN WHOLE OR IN PART, EXCEPT AS EXPRESSLY PROVIDED FOR IN THIS AGREEMENT. 
+
+3.0	Altera's Licensors:  The Reference Design may contain or be derived from portions of code and documentation provided by third parties ("Licensors") under license to ALTERA.  None of the Licensors assume any liability regarding the Reference Design or the use thereof.
+
+4.0	Term: This Agreement is effective until terminated. LICENSEE may terminate it at any time by destroying the Reference Design together with all copies, derivative works and portions thereof in any form (including any portions merged into a design or Licensed Product). It will also terminate immediately upon LICENSEE'S material breach and upon conditions set forth elsewhere in this Agreement or if LICENSEE fails to comply with any term or condition of this Agreement. Upon any termination of this Agreement, the license and rights of LICENSEE under this Agreement shall terminate, and LICENSEE shall destroy the Reference Design, including all copies, derivative works and portions thereof in any form (including any portions thereof merged into a design or Licensed Product), and certify the same to ALTERA upon request except that in the event of termination of this Agreement, LICENSEE and LICENSEE'S customers may continue to sell and use Licensed Products which have been developed in accordance with this Agreement and shipped to LICENSEE'S end customers prior to termination. In no event may any portion of the Reference Design be used in development after termination. In the event of termination for any reason, the rights, obligations, and restrictions under Sections 2, 3, 4, 6, 7, 8 and 9 shall survive termination of this Agreement.
+
+5.0	Payment: The Reference Design is being provided to LICENSEE at no cost.  ALTERA shall be compensated for any customization of a standard ALTERA Reference Design as agreed upon in writing by the parties.
+
+6.0	No Warranties, Support or Maintenance: THIS REFERENCE DESIGN IS PROVIDED TO LICENSEE "AS-IS". LICENSEE ALSO AGREES THAT NEITHER ALTERA NOR ITS LICENSORS PROVIDE MAINTENANCE OR SUPPORT FOR THE REFERENCE DESIGN. NO WARRANTIES, REPRESENTATIONS OR GUARANTIES, EITHER EXPRESS OR IMPLIED, ARE MADE WITH RESPECT TO THE REFERENCE DESIGN, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE OR NON-INFRINGEMENT.  EXCEPT AS OTHERWISE DESCRIBED UNDER THIS AGREEMENT, LICENSEE ASSUMES THE ENTIRE RISK AS TO THE QUALITY, COMPLETENESS AND PERFORMANCE OF THE REFERENCE DESIGN AND ANY DESIGN OR LICENSED PRODUCT IN WHICH THE REFERENCE DESIGN MAY BE USED. SHOULD THE REFERENCE DESIGN PROVE DEFECTIVE, ALTERA ASSUMES NO LIABILITY FOR ANY COST OF ANY NECESSARY SERVICING, REPAIR, OR CORRECTION.  Some jurisdictions do not allow the exclusion of implied warranties, so the above exclusion may not apply to you in full, but shall be interpreted to apply to the maximum extent permissible under applicable law.
+
+ALTERA AND ITS LICENSORS DO NOT WARRANT THAT THE FUNCTIONS CONTAINED IN THE REFERENCE DESIGN WILL MEET YOUR REQUIREMENTS, OR THAT THE OPERATION OF THE REFERENCE DESIGN WILL BE UNINTERRUPTED OR ERROR-FREE. YOU ALSO ASSUME RESPONSIBILITY FOR THE SELECTION OF THE REFERENCE DESIGN TO ACHIEVE YOUR INTENDED RESULTS AND FOR THE INSTALLATION, USE, AND RESULTS OBTAINED FROM THE REFERENCE DESIGN.
+
+By making the Reference Design available, ALTERA expressly does not recommend, suggest or require that this Reference Design be used in combination with any other product not provided by Altera.
+
+7.0	Limitations of Liability: 
+
+7.1	In no event shall the aggregate liability of ALTERA relating to this Agreement or the subject matter hereof under any legal theory (whether in tort, contract, or otherwise), including any liability for any loss or damages directly or indirectly suffered by LICENSEE relating to the Reference Design(s), exceed One US Dollar ($1.00).
+
+7.2	IN NO EVENT SHALL ALTERA BE LIABLE UNDER ANY LEGAL THEORY, WHETHER IN TORT, CONTRACT OR OTHERWISE (a) FOR ANY LOST PROFITS, LOST REVENUE OR LOST BUSINESS, (b) FOR ANY LOSS OF OR DAMAGES TO OTHER SOFTWARE OR DATA, OR (c) FOR ANY INCIDENTAL, INDIRECT, CONSEQUENTIAL, PUNITIVE OR SPECIAL DAMAGES RELATING TO THIS AGREEMENT OR THE SUBJECT MATTER HEREOF, INCLUDING BUT NOT LIMITED TO THE DELIVERY, USE, SUPPORT, OPERATION OR FAILURE OF THE REFERENCE DESIGN, EVEN IF ALTERA HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH LIABILITY AND NOTWITHSTANDING ANY FAILURE OF THE ESSENTIAL PURPOSE OF ANY LIMITED REMEDY STATED HEREIN.  
+6.3	LICENSEE ACKNOWLEDGES THAT ALTERA HAS NO RESPONSIBILITY OR DUTY TO DEFEND, INDEMNIFY OR HOLD LICENSEE HARMLESS FROM AND AGAINST ANY CLAIMS, SUITS, PROCEEDINGS, DAMAGES, LOSTS, COSTS AND EXPENSES, BASED ON PATENT OR OTHER INTELLECTUAL PROPERTY CLAIMS.
+
+8.0	Governing Law, Jurisdiction, Attorneys Fees:  All disputes, controversies, and claims shall be decided under the laws of the State of California, USA (including the substantive and procedural laws of the State of California), as those laws are applied to agreements entered into and to be performed entirely within California by California residents, excluding any choice of law rules.  You agree to submit to the exclusive jurisdiction of the courts in the County of Santa Clara, State of California for the resolution of any dispute or claim arising out of or relating to this Agreement.  The parties hereby agree that the party who is not the substantially prevailing party with respect to a dispute, claim, or controversy relating to this Agreement shall pay the costs actually incurred by the substantially prevailing party in relation to such dispute, claim, or controversy, including attorneys' fees.
+
+9.0	U.S. Government Restricted Rights:  If LICENSEE is an agency or instrumentality of the United States Government, the Reference Design and related documentation are "commercial computer software" and  "commercial computer software documentation", and pursuant to FAR 12.212 or DFARS 227.7202, and their successors, as applicable, use, reproduction and disclosure of the Reference Design and related documentation are governed by the terms of this Agreement.  Contractor/manufacturer is Altera Corporation, 101 Innovation Drive, San Jose, CA 95134 and its Licensors.  
+
+10.0	General:  Any attempt by LICENSEE to sublicense, assign, or otherwise transfer this Agreement or the Reference Design except as expressly provided in this Agreement is null and void.  LICENSEE shall not export the Reference Design or the direct product thereof, including any Licensed Products, without first obtaining any necessary U.S. or other governmental licenses and approvals.  This Agreement is entered into for the benefit of ALTERA and its Licensors and all rights granted to LICENSEE and all obligations owed to ALTERA shall be enforceable by ALTERA.  No amendment to this Agreement shall be effective unless it is in writing signed by a duly authorized representative of both parties. The waiver of any breach or default shall not constitute a waiver of any other right hereunder.  In the event that any provision of this Agreement is held by a court of competent jurisdiction to be legally ineffective or unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable and the validity of the remaining provisions shall not be affected.  The article headings throughout this Agreement are for reference purposes only and the words contained therein shall not be construed as a substantial part of this Agreement and shall in no way be held to explain, modify, amplify, or aid in the interpretation, construction or meaning of the provisions of this Agreement.
+
+BY DOWNLOADING OR USING THE REFERENCE DESIGN, LICENSEE ACKNOWLEDGES THAT IT HAS READ THIS AGREEMENT, UNDERSTANDS IT, AND AGREES TO BE BOUND BY ITS TERMS AND CONDITIONS. LICENSEE AND ALTERA FURTHER AGREE THAT IT IS THE COMPLETE AND EXCLUSIVE STATEMENT OF THE AGREEMENT BETWEEN LICENSEE AND ALTERA, WHICH SUPERSEDES ANY PROPOSAL OR PRIOR AGREEMENT, ORAL OR WRITTEN, AND ANY OTHER COMMUNICATIONS BETWEEN LICENSEE AND ALTERA RELATING TO THE SUBJECT MATTER OF THIS AGREEMENT.
+
+Altera Hardware Reference Design License Agreement (c) 2013 Altera Corporation.  All rights reserved.  MegaCore and OpenCore are registered trademarks of Altera Corporation.
+

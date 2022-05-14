@@ -1,0 +1,325 @@
+FILE_TYPE = EXPANDEDPARTLIST;
+{ Using PSTWRITER 10.5.0 p001May-10-2007 at 13:01:22 }
+DIRECTIVES
+ PST_VERSION='PST_HDL_CENTRIC_VERSION_0';
+ ROOT_DRAWING='DEBUG_HEADER_BREAKOUT';
+ POST_TIME='Jun 17 2005 00:56:10';
+ SOURCE_TOOL='CAPTURE_WRITER';
+END_DIRECTIVES;
+
+PART_NAME
+ D1 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48111234@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48111234@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D10 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138435@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138435@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D2 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48120410@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48120410@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D3 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48120844@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48120844@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D4 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48121282@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48121282@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D5 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48121729@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48121729@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D6 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138447@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138447@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D7 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138337@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138337@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D8 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138375@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138375@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ D9 'LTST-C195GEKT_2_LITE-ON_LTST-C1':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138405@STRATIX2_GX_SDI.LTST-C195GEKT_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138405@stratix2_gx_sdi.\ltst-c195gekt_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J1 'HDR2X20_HDR2X20_100MIL_HDR2X20':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48073764@CONNECTORS.HDR2X20.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48073764@connectors.\hdr2x20.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ J2 'QSH_2_SAMTEC_QTHDP120CUSTOM_QSH':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS47502419@DEBUG_HEADER_BREAKOUT.QSH_2.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins47502419@debug_header_breakout.\qsh_2.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R1 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48111248@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48111248@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R10 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48121702@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48121702@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R11 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138457@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138457@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R12 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138317@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138317@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R13 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138347@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138347@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R14 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138327@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138327@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R15 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138367@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138367@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R16 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138357@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138357@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R17 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138397@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138397@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R18 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138387@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138387@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R19 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138427@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138427@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R2 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48113451@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48113451@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R20 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48138417@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48138417@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R21 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48088405@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48088405@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R3 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48120420@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48120420@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R4 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48120388@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48120388@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R5 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48120836@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48120836@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R6 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48120814@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48120814@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R7 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48121271@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48121271@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R8 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48121252@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48121252@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ R9 'RESISTOR_0402_0':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48121715@DISCRETES.RESISTOR.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48121715@discretes.\resistor.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ TP1 'T_POINT_R_TP_060SQ040_1_2V_MARJ':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48086837@MECHANICAL.T_POINT_R.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48086837@mechanical.\t_point_r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+PART_NAME
+ TP2 'T_POINT_R_TP_060SQ040_1_2V_MARJ':;
+
+SECTION_NUMBER 1
+ '@DEBUG_HEADER_BREAKOUT.SCHEMATIC1(SCH_1):INS48086715@MECHANICAL.T_POINT_R.NORMAL(CHIPS)':
+ C_PATH='@debug_header_breakout.schematic1(sch_1):ins48086715@mechanical.\t_point_r.normal\(chips)',
+ PRIM_FILE='.\pstchip.dat',
+ SECTION='';
+
+END.

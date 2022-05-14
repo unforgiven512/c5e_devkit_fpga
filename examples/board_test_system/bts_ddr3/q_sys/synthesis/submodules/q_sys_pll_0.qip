@@ -1,0 +1,4 @@
+set_instance_assignment -name PLL_COMPENSATION_MODE DIRECT -to "*q_sys_pll_0*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_CHANNEL_SPACING "0.0 KHz" -to "*q_sys_pll_0*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_AUTO_RESET OFF -to "*q_sys_pll_0*|altera_pll:altera_pll_i*|*"
+set_instance_assignment -name PLL_BANDWIDTH_PRESET AUTO -to "*q_sys_pll_0*|altera_pll:altera_pll_i*|*"

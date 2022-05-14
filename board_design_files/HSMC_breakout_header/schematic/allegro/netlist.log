@@ -1,0 +1,13 @@
+{ Using PSTWRITER 10.5.0 p001May-10-2007 at 13:01:22 }
+
+#1 Warning [ALG0047] "No_connect" property on Pin "J2.151" ignored for J2: SCHEMATIC1, 02 - HSMC Loopback (2.00, 0.20). Connecting pin to net "HSM_D74".
+#2 Warning [ALG0047] "No_connect" property on Pin "J2.96" ignored for J2: SCHEMATIC1, 02 - HSMC Loopback (2.00, 0.20). Connecting pin to net "HSM_D37".
+#3 Warning [ALG0016] Part Name "LTST-C195GEKT_2_LITE-ON_LTST-C195GEKT_LTST-C195GEKT" is renamed to "LTST-C195GEKT_2_LITE-ON_LTST-C1".
+#4 Warning [ALG0016] Part Name "QSH_2_SAMTEC_QTHDP120CUSTOM_QSH_060" is renamed to "QSH_2_SAMTEC_QTHDP120CUSTOM_QSH".
+#5 Warning [ALG0016] Part Name "T_POINT_R_TP_060SQ040_1_2V_MARJ_DNN" is renamed to "T_POINT_R_TP_060SQ040_1_2V_MARJ".
+Scanning netlist files ...
+Loading... c:\cvs_sandbox\boards\hsmc\debug_header_breakout\debug_header_breakout_a\schematic\allegro/pstchip.dat
+Loading... c:\cvs_sandbox\boards\hsmc\debug_header_breakout\debug_header_breakout_a\schematic\allegro/pstchip.dat
+Loading... c:\cvs_sandbox\boards\hsmc\debug_header_breakout\debug_header_breakout_a\schematic\allegro/pstxprt.dat
+Loading... c:\cvs_sandbox\boards\hsmc\debug_header_breakout\debug_header_breakout_a\schematic\allegro/pstxnet.dat
+packaging the design view...

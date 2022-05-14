@@ -1,0 +1,11 @@
+         U end_of_boot_copier
+00001054 T _start
+00001054 T main
+00001054 T reset
+0000105c t cache_flush_loop
+00001070 t current_code_offset
+0000108c t loop_forever
+00002090 A __bss_start
+00002090 A _edata
+00002090 A _end
+0000a080 A _gp

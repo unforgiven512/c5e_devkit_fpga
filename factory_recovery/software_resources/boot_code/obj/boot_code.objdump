@@ -1,0 +1,28 @@
+
+./obj/boot_code.elf:     file format elf32-littlenios2
+
+
+Disassembly of section .text:
+
+00001054 <_start>:
+    1054:	0001703a 	wrctl	status,zero
+    1058:	01800074 	movhi	r6,1
+
+0000105c <cache_flush_loop>:
+    105c:	3001483a 	initi	r6
+    1060:	31bff804 	addi	r6,r6,-32
+    1064:	303ffd1e 	bne	r6,zero,105c <cache_flush_loop>
+    1068:	0000203a 	flushp
+    106c:	0010e03a 	nextpc	r8
+
+00001070 <current_code_offset>:
+    1070:	01800034 	movhi	r6,0
+    1074:	31841c04 	addi	r6,r6,4208
+    1078:	4197c83a 	sub	r11,r8,r6
+    107c:	00808f34 	movhi	r2,572
+    1080:	10808f34 	orhi	r2,r2,572
+    1084:	12c5883a 	add	r2,r2,r11
+    1088:	103ee83a 	callr	r2
+
+0000108c <loop_forever>:
+    108c:	003fff06 	br	108c <loop_forever>

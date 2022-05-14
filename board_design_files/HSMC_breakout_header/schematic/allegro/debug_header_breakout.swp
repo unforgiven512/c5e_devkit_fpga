@@ -1,0 +1,48 @@
+;*********************************************************
+;                                                        *
+; OrCAD Backannotation File                              *
+; Using  PSTWRITER 10.5.0 p001                            *
+; May-10-2007 at 12:35:33                                *
+;                                                        *
+;*********************************************************
+
+
+.Section1 Flags
+DesignName=c:\cvs_sandbox\boards\hsmc\debug_header_breakout\debug_header_breakout_a\schematic\debug_header_breakout.dsn
+.End
+
+.Section2 GateAndPinSwap
+	CHANGEREF D2 D6
+	CHANGEREF D3 D2
+	CHANGEREF D4 D7
+	CHANGEREF D5 D3
+	CHANGEREF D6 D8
+	CHANGEREF D7 D4
+	CHANGEREF D8 D9
+	CHANGEREF D9 D5
+	CHANGEREF J4 J1
+	CHANGEREF J9 J2
+	CHANGEREF R1 R21
+	CHANGEREF R10 R5
+	CHANGEREF R11 R15
+	CHANGEREF R12 R6
+	CHANGEREF R13 R16
+	CHANGEREF R14 R7
+	CHANGEREF R15 R17
+	CHANGEREF R16 R8
+	CHANGEREF R17 R18
+	CHANGEREF R18 R9
+	CHANGEREF R2 R1
+	CHANGEREF R20 R10
+	CHANGEREF R21 R20
+	CHANGEREF R3 R11
+	CHANGEREF R4 R2
+	CHANGEREF R5 R12
+	CHANGEREF R6 R3
+	CHANGEREF R7 R13
+	CHANGEREF R8 R4
+	CHANGEREF R9 R14
+	CHANGEREF TP1 TP2
+	CHANGEREF TP2 TP1
+.End
+

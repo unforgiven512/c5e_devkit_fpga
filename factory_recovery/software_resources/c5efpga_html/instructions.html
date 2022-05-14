@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Board Design Resource Center</title>
+	<meta name="keywords" content="board design, high-speed, pcbs, signal integrity" />
+	<meta name="description" content="The Board Design Guidelines Solution Center provides you with board design-related resources for Altera devices to help you implement successful high-speed PCBs that integrate device(s) and other elements." />
+	<meta name="owner" content="cms_webprog" />
+	<meta name="date" content="2008-12-19" />
+	<meta name="com.vtrenz.pagename" content="Board Design Resource Center" />
+	<link rel="stylesheet" media="all" type="text/css" href="style.css" />
+</head>
+
+
+<body>
+
+
+
+<!-- begin top banner -->
+<div class="bup-header">
+    <img src="altera-logo.gif" alt="Altera Logo" style="float:left; padding:15px 0px 15px 10px;"/>
+</div>
+<!-- end top banner -->
+
+
+<!--start of bup-popup-->
+<div class="bup-popup">
+<br/>
+<h1>Board Update Portal Instructions</h1>
+
+<h4>Select files required to update the board</h4>
+<ul>
+<li>SRAM Object File (.sof) containing the FPGA image</li>
+<li>Executable and Linkable Format File (.elf) containing the software application<br/>
+(required only if the design includes a software application)</li>
+
+</ul>
+
+<h4>Convert the .sof file and .elf file to flash format (that is, the format required to program the flash)</h4>
+
+<ol>
+    	Note:  You must have the Nios<sup>&reg;</sup> II EDS installed in order to perform this step.
+<p></p>
+    	<li><p>From the Start Menu select All Programs, Altera, Nios II EDS, and then Nios II Command Shell</p>
+        </li>
+
+
+        <li>In the Nios II Command Shell, navigate to the .sof file and type<br/>
+		<p><strong>sof2flash --input=<i>yourfile_hw.sof</i> --output=<i>yourfile_hw.flash</i> --offset=0x800000  --pfl --optionbit=0x00018000 --programmingmode=FPP</strong></p>
+        </li>
+
+        <li>If the design includes a software application, in the Nios II Command Shell, navigate to the .elf file and type <br/>
+        <p><strong>elf2flash --base=0x00000000 --end=0x03FFFFFF --reset=0x23C0000 --input=<i>yourfile_sw.elf</i> --output=<i>yourfile_sw.flash</i> --boot=$SOPC_KIT_NIOS2/components/altera_nios2/boot_loader_sources/boot_loader_cfi.srec </strong></p>
+        </li>
+</ol>
+
+<h4>Program the flash and reset the board</h4>
+<ol>
+<p></p>
+		<li><p>Browse to the hardware file and the software file (if required), respectively.</p>
+        </li>
+		<li><p>Click <strong>Upload</strong>, and then wait for the files to be written to flash. Progress is displayed from 0 to 100%.</p>
+        </li>
+        <li>When the upload is complete, Press button <strong>PGM_SEL (S2)</strong> until <strong>PGM LED 1</strong> is lit then press button <strong>PGM_CONFIG (S1)</strong> to configure the FPGA with the new image.</li>
+</ol>
+</div>
+<!--end of bup-opopup-->
+
+</body>
+</html>

@@ -1,0 +1,233 @@
+\t (289:40:40) allegro_viewer_plus 16.5 P002 (v16-5-13B) i86
+\t (289:40:40)     Journal start - Mon Sep 23 11:59:48 2013
+\t (289:40:40)         Host=SD-NARSCLAB01 User=cpryor Pid=8148 CPUs=8
+\t (289:40:40) 
+\d (289:40:40) Database opened: //rambo/projects/devkits/cycloneVE_5cefa7f31_fpga_v12.1.1.0/board_design_files/cycloneVE_5cefa7f31_fpga/layout/CycloneV_E_Dev_Kit_RevB.brd
+\i (289:40:44) zoom points 
+\t (289:40:44) Pick 1st corner of the new window.
+\i (289:40:46) drag_start -932.18 5215.29
+\i (289:40:47) drag_stop 7070.24 -1039.88
+\i (289:40:47) trapsize 3728
+\i (289:40:51) setwindow form.vf_vis
+\i (289:40:51) FORM vf_vis colorview_list Film: 02-silk-top 
+\i (289:40:53) FORM vf_vis 1 all_colorvisible YES 
+\i (289:40:55) setwindow pcb
+\i (289:40:55) show element 
+\i (289:40:58) setwindow form.find
+\i (289:40:58) FORM find find_name r4 
+\i (289:41:02) FORM find name_type Comp (or Pin) 
+\i (289:41:04) FORM find find_name r4 
+\i (289:41:04) setwindow pcb
+\i (289:41:04) trapsize 176
+\i (289:41:07) zoom out 
+\i (289:41:07) setwindow pcb
+\i (289:41:07) zoom out 2582.83 2092.66
+\i (289:41:07) trapsize 353
+\i (289:41:07) zoom out 
+\i (289:41:07) setwindow pcb
+\i (289:41:07) zoom out 2582.83 2092.67
+\i (289:41:07) trapsize 705
+\i (289:41:08) zoom out 
+\i (289:41:08) setwindow pcb
+\i (289:41:08) zoom out 2582.83 2092.67
+\i (289:41:08) trapsize 1410
+\i (289:41:15) zoom points 
+\t (289:41:15) Pick 1st corner of the new window.
+\i (289:41:16) drag_start 2340.25 2304.21
+\i (289:41:17) drag_stop 2893.11 1779.56
+\i (289:41:17) trapsize 313
+\i (289:43:05) show element 
+\i (289:43:06) setwindow form.find
+\i (289:43:06) FORM find lines NO 
+\i (289:43:07) FORM find nets YES 
+\i (289:43:09) setwindow pcb
+\i (289:43:09) pick grid 2646.66 2073.46
+\t (289:43:09) last pick:  2647.00  2073.00
+\i (289:47:52) setwindow form.find
+\i (289:47:52) FORM find find_name u5 
+\i (289:47:52) setwindow pcb
+\i (289:47:52) trapsize 313
+\i (289:47:55) setwindow text
+\i (289:47:55) close 
+\i (289:47:56) setwindow pcb
+\i (289:47:56) zoom out 
+\i (289:47:56) setwindow pcb
+\i (289:47:56) zoom out 1749.69 4354.02
+\i (289:47:56) trapsize 625
+\i (289:48:01) setwindow form.vf_vis
+\i (289:48:01) FORM vf_vis colorview_list Film: 17-silk-bot 
+\i (289:48:03) FORM vf_vis 12 all_colorvisible YES 
+\i (289:50:04) setwindow pcb
+\i (289:50:04) pick grid 1953.55 4632.92
+\t (289:50:04) last pick:  1954.00  4633.00
+\i (289:50:43) roam start
+\i (289:50:43) roam x 16
+\i (289:50:43) roam y 64
+\i (289:50:43) roam x 32
+\i (289:50:43) roam y 80
+\i (289:50:43) roam x 64
+\i (289:50:43) roam y 112
+\i (289:50:43) roam x 32
+\i (289:50:43) roam y 48
+\i (289:50:43) roam x 16
+\i (289:50:43) roam y 32
+\i (289:50:43) roam x 16
+\i (289:50:43) roam y 32
+\i (289:50:43) roam x 16
+\i (289:50:43) roam y 32
+\i (289:50:43) roam y 32
+\i (289:50:43) roam y 32
+\i (289:50:43) roam x 32
+\i (289:50:43) roam y 64
+\i (289:50:43) roam x 16
+\i (289:50:43) roam y 80
+\i (289:50:43) roam x 32
+\i (289:50:43) roam y 48
+\i (289:50:44) roam x 32
+\i (289:50:44) roam y 80
+\i (289:50:44) roam x 48
+\i (289:50:44) roam y 80
+\i (289:50:44) roam x 16
+\i (289:50:44) roam y 32
+\i (289:50:44) roam x 16
+\i (289:50:44) roam y 64
+\i (289:50:44) roam y 32
+\i (289:50:44) roam x 16
+\i (289:50:44) roam y 16
+\i (289:50:44) roam y 32
+\i (289:50:44) roam y 16
+\i (289:50:44) roam y 32
+\i (289:50:44) roam y 16
+\i (289:50:44) roam x -16
+\i (289:50:44) roam y 16
+\i (289:50:44) roam x -16
+\i (289:50:45) roam end
+\i (289:51:35) roam start
+\i (289:51:35) roam y -32
+\i (289:51:35) roam x 16
+\i (289:51:35) roam y -64
+\i (289:51:35) roam y -16
+\i (289:51:35) roam y -16
+\i (289:51:35) roam y -48
+\i (289:51:35) roam y -64
+\i (289:51:35) roam y -16
+\i (289:51:35) roam x -16
+\i (289:51:35) roam y -96
+\i (289:51:35) roam x -16
+\i (289:51:35) roam y -32
+\i (289:51:35) roam x -16
+\i (289:51:35) roam y -48
+\i (289:51:35) roam x -16
+\i (289:51:35) roam y -16
+\i (289:51:35) roam y -16
+\i (289:51:36) roam x -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam x -16
+\i (289:51:36) roam y -48
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -16
+\i (289:51:36) roam y -32
+\i (289:51:37) roam x -16
+\i (289:51:37) roam y -16
+\i (289:51:37) roam y -16
+\i (289:51:37) roam x -16
+\i (289:51:37) roam y -16
+\i (289:51:37) roam end
+\i (289:51:37) zoom in 1 
+\i (289:51:37) setwindow pcb
+\i (289:51:37) zoom in 2075.05 4230.00
+\i (289:51:37) trapsize 313
+\i (289:51:37) zoom out 1 
+\i (289:51:37) setwindow pcb
+\i (289:51:37) zoom out 2073.80 4230.00
+\i (289:51:37) trapsize 625
+\e (289:52:28) Command not found: ~F
+\e (289:52:30) Command not found: r52
+\i (289:52:35) setwindow form.find
+\i (289:52:35) FORM find find_name r52 
+\i (289:52:35) setwindow pcb
+\i (289:52:35) trapsize 239
+\i (289:52:38) setwindow text
+\i (289:52:38) close 
+\i (289:52:43) setwindow form.vf_vis
+\i (289:52:43) FORM vf_vis colorview_list Film: 02-silk-top 
+\i (289:52:44) FORM vf_vis 1 all_colorvisible YES 
+\i (289:52:47) setwindow pcb
+\i (289:52:47) zoom out 
+\i (289:52:47) setwindow pcb
+\i (289:52:47) zoom out 434.52 3450.76
+\i (289:52:47) trapsize 477
+\i (289:53:32) pick grid 103.44 3543.31
+\t (289:53:32) last pick:  103.00  3543.00
+\i (289:56:06) pick grid 97.71 3706.47
+\t (289:56:06) last pick:  98.00  3706.00
+\i (289:56:19) roam y -96 
+\i (289:56:19) roam y -96
+\i (289:56:41) pick grid -12.97 3777.74
+\t (289:56:41) last pick:  -13.00  3778.00
+\i (289:56:43) pick grid 132.06 3427.57
+\t (289:56:43) last pick:  132.00  3428.00
+\i (289:58:37) setwindow text
+\i (289:58:37) close 
+\i (289:58:39) setwindow pcb
+\i (289:58:39) roam start
+\i (289:58:39) roam y 64
+\i (289:58:39) roam x 16
+\i (289:58:39) roam y 16
+\i (289:58:39) roam x 16
+\i (289:58:39) roam y 32
+\i (289:58:40) roam x 16
+\i (289:58:40) roam y 32
+\i (289:58:40) roam y 32
+\i (289:58:40) roam y 16
+\i (289:58:40) roam y 16
+\i (289:58:40) roam x -16
+\i (289:58:40) roam y 16
+\i (289:58:40) roam y 16
+\i (289:58:40) roam x -16
+\i (289:58:40) roam y 16
+\i (289:58:40) roam y 16
+\i (289:58:40) roam y 16
+\i (289:58:41) roam y 16
+\i (289:58:41) roam y -16
+\i (289:58:41) roam x 16
+\i (289:58:41) roam y -16
+\i (289:58:41) roam x 16
+\i (289:58:41) roam y -16
+\i (289:58:41) roam y -16
+\i (289:58:41) roam y -16
+\i (289:58:41) roam x 16
+\i (289:58:41) roam y -16
+\i (289:58:42) roam end
+\i (290:12:33) setwindow form.find
+\i (290:12:33) FORM find find_name u5 
+\i (290:12:33) setwindow pcb
+\i (290:12:33) trapsize 271
+\i (290:12:35) setwindow text
+\i (290:12:35) close 
+\i (290:12:43) setwindow form.vf_vis
+\i (290:12:43) FORM vf_vis colorview_list Film: 17-silk-bot 
+\i (290:12:44) FORM vf_vis 12 all_colorvisible YES 
+\i (290:12:55) setwindow pcb
+\i (290:12:55) flipdesign 
+\i (290:13:00) show element 
+\i (290:14:16) pick grid 1839.14 4352.97
+\t (290:14:16) last pick:  1839.00  4353.00
+\i (290:14:21) setwindow text
+\i (290:14:21) close 
+\i (290:14:27) setwindow pcb
+\i (290:14:27) pick grid 1821.26 4377.36
+\t (290:14:27) last pick:  1821.00  4377.00
+\i (290:14:29) setwindow text
+\i (290:14:29) close 
+\i (360:35:31) setwindow pcb
+\i (360:35:31) exit 
+\t (360:35:32)     Journal end - Thu Sep 26 10:54:39 2013

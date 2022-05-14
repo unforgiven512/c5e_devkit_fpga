@@ -1,0 +1,799 @@
+// synthesis translate_off
+`timescale 1ns / 1ps
+// synthesis translate_on
+
+// turn off superfluous verilog processor warnings 
+// altera message_level Level1 
+// altera message_off 10034 10035 10036 10037 10230 10240 10030 
+
+module master_driver_msgdma(
+	input	reset_n,
+	input	clk,
+	
+	input		[3:0]	csr_address,
+	input				csr_read,
+	input				csr_write,
+	output reg[31:0]csr_readdata,
+	input		[31:0]csr_writedata,
+	output			csr_waitrequest,
+
+	input [1:0]irq,
+//  input irq_read,
+	input waitrequest_in,
+	output	reg csn,
+	output	reg wen,
+	output reg oen,
+	output	reg [3:0]be,
+	output	reg [31:0]address,
+	output	reg [31:0]data_write,
+	input [31:0] data_read,
+	output	reset_out,
+	output	reg error_status, 
+	output	reg system_status
+);
+
+	  
+	parameter PRBS_PATTERN_GENERATOR_BASE = 32'h40000040;
+	parameter PRBS_PATTERN_CHECKER_BASE = 32'h40000000;
+//	parameter RAM_TEST_CONTROLLER_BASE = 32'h02021080;
+	parameter MEMORY_BASE_ADDRESS = 32'h00000000;
+	parameter MEMORY_SPAN = 32'h00008000;
+	parameter BLOCK_SIZE = 32'h000100;
+//	parameter BLOCK_TRAIL = 8'h02;
+	
+	parameter DISPATCHER_WRITE_CSR = 32'h40000060;
+	parameter DISPATCHER_WRITE_DESCRIPTOR = 32'h400000A0;
+	parameter DISPATCHER_READ_CSR = 32'h40000080;
+	parameter DISPATCHER_READ_DESCRIPTOR = 32'h400000B0;
+	parameter TIMER_BASE = 32'h40000100;
+	parameter FREQUENCY_COUNTER_BASE = 32'h40000200;
+
+
+	reg [31:0]timer;
+	reg failuer;
+	  
+//	integer count;
+	reg [15:0] count;
+//	integer command;
+	reg [15:0] command;
+	
+	
+	wire [31:0] status;
+	reg [31:0] contrl;
+	reg [31:0] mem_base_addr;
+	reg [31:0] mem_span;
+	reg [31:0] blk_size;
+	reg [7:0] blk_trail;
+	reg [7:0] timer_res;
+	reg [31:0] error_data_ins;
+	reg [31:0] error_counter;
+	
+	reg wait_for_write;
+	reg error_ins;
+	reg error_clear;
+//	reg error_status;
+	reg clear_error_counter;
+	reg process_start;
+	reg [30:0] timeout_counter;
+//	reg system_status;
+	reg [31:0] target_freq_counter;
+	reg [31:0] target_freq;
+	reg issue_reset, issue_reset_int1, issue_reset_int2;
+	reg reset_out_int;
+
+
+	localparam TIMER_READ = 1;
+	localparam ERROR_READ = 1000; // the timer data was over wrapping at location of 100...
+	localparam FREQ_READ = 2000;
+	localparam ISSUE_RESET = 3000;
+	localparam SET_PRBS = 4000;
+	localparam SET_WRITE_CSR = 5000;
+	localparam SET_WRITE_DIS = 6000;
+	localparam SET_READ_CSR = 7000;
+	localparam SET_READ_DIS = 8000;
+
+
+	assign reset_out = reset_out_int | issue_reset;
+	
+	reg irq_int1, irq_int2, irq_int;
+  always @ (posedge clk or negedge reset_n)begin
+    if (reset_n == 0)begin
+      irq_int1 <= 0;
+      irq_int2 <= 1;
+      irq_int <= 0;
+    end else begin
+//      irq_int1 <= irq_read;
+      irq_int1 <= irq[1];
+      irq_int2 <= !irq_int1;
+      irq_int <= irq_int1 & irq_int2;
+    end
+  end
+	
+  reg irq_int3, irq_int4, irq_write_int;
+  always @ (posedge clk or negedge reset_n)begin
+    if (reset_n == 0)begin
+      irq_int3 <= 0;
+      irq_int4 <= 1;
+      irq_write_int <= 0;
+    end else begin
+//      irq_int3 <= irq_write;
+      irq_int3 <= irq[0];
+      irq_int4 <= !irq_int3;
+      irq_write_int <= irq_int4 & irq_int3;
+    end
+  end
+
+
+// CSR control	
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			error_ins <= 0;
+			process_start <= 1;
+			clear_error_counter <= 0;
+		end else  begin
+//			if(error_clear == 1)begin // reset the command
+			if(command == SET_WRITE_CSR+404)begin //SET_WRITE_CSR+404
+				error_ins <= 0;
+				clear_error_counter <= 0;
+			end else if (csr_write == 1 & csr_address == 3'b001) begin //4
+				if(csr_writedata[0] == 1)begin
+					error_ins <= 1;
+				end
+				clear_error_counter <= csr_writedata[1];
+				process_start <= csr_writedata[31];
+			end
+		end
+	end
+
+	// generating issue_reset command
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			issue_reset_int1 <= 0;
+		end else if (csr_write == 1 & csr_address == 3'b001)begin
+			issue_reset_int1 <= csr_writedata[8];
+		end
+	end
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			issue_reset <= 0;
+			issue_reset_int2 <= 1;
+		end else  begin
+			issue_reset <= issue_reset_int1 & issue_reset_int2;
+			issue_reset_int2 <= !issue_reset_int1;
+		end
+	end
+	
+	
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			error_status <= 0;
+		end else if (clear_error_counter == 1) begin
+			error_status <= 0;
+		end else if(issue_reset == 1)begin
+			error_status <= 0;
+		end else if (error_counter != 0) begin
+			error_status <= 1;
+		end else begin
+		  error_status <= 0;
+		end
+	end
+	
+	
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			mem_base_addr <= MEMORY_BASE_ADDRESS;
+		end else if (csr_write == 1 & csr_address == 3'b010) begin //8
+			mem_base_addr <= csr_writedata;
+		end
+	end
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			mem_span <= MEMORY_SPAN;
+		end else if (csr_write == 1 & csr_address == 3'b011) begin //12
+			mem_span <= csr_writedata;
+		end
+	end
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			blk_size <= BLOCK_SIZE;
+		end else if (csr_write == 1 & csr_address == 3'b100) begin //16
+			blk_size <= csr_writedata;
+		end
+	end
+
+
+
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			timeout_counter <= 0;
+			system_status <= 1;
+		end else begin
+			if(command == 1)begin
+				timeout_counter <= 0;
+				system_status <= 1;
+			end else if(timeout_counter == mem_span)begin // memory_span is long enough to say the timeout
+				timeout_counter <= timeout_counter; 			// just because the datawidth is not 8 most of time.
+				system_status <= 0;
+			end else begin
+				timeout_counter <= timeout_counter + 1;
+				system_status <= 1;
+			end
+		end
+	end
+
+	
+	assign status = {error_status, system_status, process_start};
+
+
+	
+	always @ (posedge clk or negedge reset_n)begin
+		if (reset_n == 0)begin
+			csr_readdata <= 0;
+		end else if(csr_read == 1)begin
+			case(csr_address)
+				0:csr_readdata <= status;
+				1:csr_readdata <= contrl;
+				2:csr_readdata <= mem_base_addr;
+				3:csr_readdata <= mem_span;
+				4:csr_readdata <= blk_size;
+				5:csr_readdata <= target_freq;
+				6:csr_readdata <= timer_res;
+				7:csr_readdata <= timer;
+				8:csr_readdata <= error_counter;
+				default:csr_readdata <= 0;
+			endcase
+		end
+	end
+	
+	
+	
+  // This is only for simulation to wait till DDR memory to be ready
+	always @(posedge clk or negedge reset_n)begin
+		if(reset_n == 0)begin
+			count <= 0;
+		end
+		else begin
+			if(count == 18000)begin
+				count <= 18000;
+			end else begin
+				count <= count + 1;
+			end
+		end
+	end
+
+
+  
+
+
+	
+	always @(posedge clk or negedge reset_n)begin
+		if(reset_n == 0)begin
+			csn <= 1'b1;
+			wen <= 1'b1;
+			oen <= 1'b1;
+			address <= 0;
+			data_write <= 0;
+			command <= 0;
+			be <= 0;
+			failuer <= 0;
+			timer <= 0;
+			wait_for_write <= 0;
+			reset_out_int <= 0;
+			error_counter <= 0;
+			error_clear <= 0;
+			target_freq <= 0;
+		end else begin
+			if(issue_reset == 1)begin
+				csn <= 1'b1;
+				wen <= 1'b1;
+				oen <= 1'b1;
+				address <= 0;
+				data_write <= 0;
+				be <= 4'b0000;
+				reset_out_int <= 0;
+				command <= 65436;
+				wait_for_write <= 0;
+				error_counter <= 0;
+			end else if(count == 18000 & process_start == 1 )begin
+				if(irq_int == 1)begin
+					csn <= 1'b0;
+					wen <= 1'b0;
+					oen <= 1'b1;
+					address <= TIMER_BASE + 20; // write dummy data
+					data_write <= 32'h00; // dummy
+					be <= 4'b1111;
+					wait_for_write <= 0;          
+				end else if(irq_write_int == 1)begin
+					wait_for_write <= 0;
+				end else begin
+					case (command)
+					  
+					TIMER_READ,TIMER_READ+1:begin // read takes more time, so assigning 3 stages
+						csn <= 1'b0;
+						wen <= 1'b1;
+						oen <= 1'b0;
+						address <= TIMER_BASE + 16; // get timer data
+						be <= 4'b1111;
+						if(waitrequest_in != 1)begin
+							timer[15:0] <= data_read[15:0];
+						end
+					end
+
+
+
+					TIMER_READ+100,TIMER_READ+101:begin // read takes more time, so assigning 3 stages
+						csn <= 1'b0;
+						wen <= 1'b1;
+						oen <= 1'b0;
+						address <= TIMER_BASE + 20; // get timer data
+						be <= 4'b1111;
+						if(waitrequest_in != 1)begin
+							timer[31:16] <= data_read[15:0];
+						end
+					end
+
+
+					ERROR_READ,ERROR_READ+1:begin // read takes more time, so assigning 3 stages
+						csn <= 1'b0;
+						wen <= 1'b1;
+						oen <= 1'b0;
+						reset_out_int <= 0;
+						be <= 4'b1111;
+						address <= PRBS_PATTERN_CHECKER_BASE + 32;
+						if(waitrequest_in != 1)begin
+							if(clear_error_counter == 1)begin
+								error_counter <= 0;
+							end else begin
+								error_counter <= error_counter + data_read;
+							end
+						end
+
+						if(waitrequest_in != 1)begin
+							if(data_read != 0)begin
+								failuer <= 1;
+							end else begin
+								failuer <= 0;
+							end
+						end  
+					end
+					  
+
+					FREQ_READ,FREQ_READ+1:begin
+						csn <= 1'b0;
+						wen <= 1'b1;
+						oen <= 1'b0;
+						reset_out_int <= 0;
+						be <= 4'b1111;
+						address <= FREQUENCY_COUNTER_BASE;
+						if(waitrequest_in != 1)begin
+							target_freq <= data_read;
+						end
+					end
+
+
+					// reset the both write/read descriptor
+					ISSUE_RESET, ISSUE_RESET+1:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_CSR + 4;// issue reset dispatcher
+						data_write <= 32'h00000002;
+						be <= 4'b1111;
+					end
+					ISSUE_RESET+100, ISSUE_RESET+101:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_CSR + 4;// issue reset dispatcher
+						data_write <= 32'h00000002;
+						be <= 4'b1111;
+					end
+
+
+					//            IOWR_32DIRECT(MSGDMA_0_PRBS_PATTERN_GENERATOR_BASE, 0, memory_span);
+					//            IOWR_8DIRECT(MSGDMA_0_PRBS_PATTERN_GENERATOR_BASE, 8, 0x00);
+					//            IOWR_32DIRECT(MSGDMA_0_PRBS_PATTERN_CHECKER_BASE, 0, memory_span);
+					//            IOWR_8DIRECT(MSGDMA_0_PRBS_PATTERN_CHECKER_BASE, 8, 0x00);
+					//            IOWR_8DIRECT(MSGDMA_0_PRBS_PATTERN_CHECKER_BASE, 9, 0x00);
+					//            IOWR_8DIRECT(MSGDMA_0_PRBS_PATTERN_CHECKER_BASE, 24, 0x00);
+					//            IOWR_32DIRECT(MSGDMA_0_PRBS_PATTERN_CHECKER_BASE, 0, memory_span);
+					//            IOWR_32DIRECT(MSGDMA_0_PRBS_PATTERN_GENERATOR_BASE, 0, memory_span);
+
+
+					
+
+
+					SET_PRBS, SET_PRBS+1:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_GENERATOR_BASE; // setting Payload Length
+						data_write <= mem_span;
+						be <= 4'b1111;
+						reset_out_int <= 0;						
+					end
+
+					SET_PRBS+100, SET_PRBS+101:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_GENERATOR_BASE + 8; // disabling Infinite Payload Length
+						data_write <= 32'h00000000;
+						be <= 4'b1111;
+					end
+
+					SET_PRBS+200, SET_PRBS+201:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_CHECKER_BASE; // setting Payload Length
+						data_write <= mem_span;
+						be <= 4'b1111;
+					end
+
+					SET_PRBS+300, SET_PRBS+301:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_CHECKER_BASE + 8; // disabling Infinite Payload Length
+						data_write <= 32'h00000000;
+						be <= 4'b1111;
+					end
+
+					SET_PRBS+400, SET_PRBS+401:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_CHECKER_BASE + 24; // disabling Stop on Failure
+						data_write <= 32'h00000000;
+						be <= 4'b1111;
+					end
+
+
+
+					SET_PRBS+500, SET_PRBS+501:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_GENERATOR_BASE; // setting Payload Length
+						data_write <= mem_span;
+						be <= 4'b1111;
+					end
+
+					SET_PRBS+600, SET_PRBS+601:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_CHECKER_BASE; // setting Payload Length
+						data_write <= mem_span;
+						be <= 4'b1111;
+					end
+
+
+
+					/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+					//            IOWR_32DIRECT(MSGDMA_0_DISPATCHER_WRITE_CSR_BASE, 4, 0x02);  // issue reset dispatcher
+					//            IOWR_32DIRECT(MSGDMA_0_DISPATCHER_WRITE_CSR_BASE, 0, 0x0000); //clear all the status
+					//            IOWR_32DIRECT(MSGDMA_0_DISPATCHER_WRITE_CSR_BASE, 4, 0x10); // set IRQ enable
+					//            IOWR_32DIRECT(MSGDMA_0_DISPATCHER_WRITE_CSR_BASE, 0, 0x0); //clear all the status
+					//            IOWR_8DIRECT(MSGDMA_0_PRBS_PATTERN_GENERATOR_BASE, 11, 0x01);
+					//              IOWR_32DIRECT(MSGDMA_0_DISPATCHER_WRITE_DESCRIPTOR_SLAVE_BASE, 0x0, 0);
+					//              IOWR_32DIRECT(MSGDMA_0_DISPATCHER_WRITE_DESCRIPTOR_SLAVE_BASE, 0x4, block_size * k);
+					//              IOWR_32DIRECT(MSGDMA_0_DISPATCHER_WRITE_DESCRIPTOR_SLAVE_BASE, 0x8, block_size);
+					//                IOWR_32DIRECT(MSGDMA_0_DISPATCHER_WRITE_DESCRIPTOR_SLAVE_BASE, 0xC, 0x80004000);
+					//        
+
+
+					SET_WRITE_CSR, SET_WRITE_CSR+1:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_CSR + 4;// issue reset dispatcher
+						data_write <= 32'h00000002;
+						be <= 4'b1111;
+					end
+
+					SET_WRITE_CSR+100, SET_WRITE_CSR+101:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_CSR + 0;//clear all the status
+						data_write <= 0;
+						be <= 4'b1111;
+					end
+
+					SET_WRITE_CSR+200, SET_WRITE_CSR+201:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_CSR + 4; // set IRQ enaAC40ble
+						data_write <= 32'h10;
+						be <= 4'b1111;
+					end
+
+
+					SET_WRITE_CSR+300, SET_WRITE_CSR+301:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_CSR + 0;//clear all the status
+						data_write <= 0;
+						be <= 4'b1111;
+					end
+
+					  
+
+					SET_WRITE_CSR+400, SET_WRITE_CSR+401:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_GENERATOR_BASE + 8; // sending GO command to generator
+						if(error_ins == 1)begin
+							data_write <= 32'h03000000;
+						end else begin
+							data_write <= 32'h01000000;
+						end
+						be <= 4'b1000;
+					end
+
+					// clear the error insrt signal
+					SET_WRITE_CSR+403:begin
+						error_clear <= 0;
+					end
+					
+					SET_WRITE_CSR+404:begin
+						error_clear <= 1;
+					end
+					
+					SET_WRITE_CSR+405:begin
+						error_clear <= 0;
+					end
+
+
+					// writing descriptor from here
+					SET_WRITE_DIS, SET_WRITE_DIS+1:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_DESCRIPTOR + 0;
+						data_write <= 0; // get data from.
+						be <= 4'b1111;
+					end
+
+					SET_WRITE_DIS+100, SET_WRITE_DIS+101:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_DESCRIPTOR + 4;
+						data_write <= 0; // location to write to
+						be <= 4'b1111;
+					end
+
+					SET_WRITE_DIS+200, SET_WRITE_DIS+201:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_DESCRIPTOR + 8;
+						data_write <= mem_span; // size to write
+						be <= 4'b1111;
+					end
+
+
+
+					SET_WRITE_DIS+300, SET_WRITE_DIS+301:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= TIMER_BASE + 0;
+						data_write <= 32'h0;
+						be <= 4'b1111;
+					end
+
+					SET_WRITE_DIS+400, SET_WRITE_DIS+401:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= TIMER_BASE + 4;
+						data_write <= 32'hA;
+						be <= 4'b1111;
+					end
+
+					SET_WRITE_DIS+500, SET_WRITE_DIS+501:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= TIMER_BASE + 8;
+						data_write <= 32'hFFFFFFFF;
+						be <= 4'b1111;
+					end
+
+					SET_WRITE_DIS+600, SET_WRITE_DIS+601:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= TIMER_BASE + 12;
+						data_write <= 32'hFFFFFFFF;
+						be <= 4'b1111;
+					end
+
+
+					SET_WRITE_DIS+700, SET_WRITE_DIS+701:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= TIMER_BASE + 4;
+						data_write <= 32'h6;
+						be <= 4'b1111;
+					end
+
+
+
+
+					SET_WRITE_DIS+800:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_WRITE_DESCRIPTOR + 12;
+						data_write <= 32'h80004000;
+						be <= 4'b1111;
+					end
+					// end of descriptor
+
+
+
+					SET_WRITE_DIS+902:begin
+						wait_for_write <= 1;
+					end
+
+
+
+					//        
+					//            IOWR_32DIRECT(MSGDMA_0_DISPATCHER_READ_CSR_BASE, 4, 0x02);  // issue reset dispatcher
+					//            IOWR_32DIRECT(MSGDMA_0_DISPATCHER_READ_CSR_BASE, 0, 0x0000); //clear all the status
+					//            IOWR_32DIRECT(MSGDMA_0_DISPATCHER_READ_CSR_BASE, 4, 0x10); // set IRQ enable
+					//            IOWR_32DIRECT(MSGDMA_0_DISPATCHER_READ_CSR_BASE, 0, 0x0); //clear all the status
+					//            IOWR_8DIRECT(MSGDMA_0_PRBS_PATTERN_CHECKER_BASE, 11, 0x01);
+					//              IOWR_32DIRECT(MSGDMA_0_DISPATCHER_READ_DESCRIPTOR_SLAVE_BASE, 0x0, block_size * k);
+					//              IOWR_32DIRECT(MSGDMA_0_DISPATCHER_READ_DESCRIPTOR_SLAVE_BASE, 0x4, 0);
+					//              IOWR_32DIRECT(MSGDMA_0_DISPATCHER_READ_DESCRIPTOR_SLAVE_BASE, 0x8, block_size);
+					//                IOWR_32DIRECT(MSGDMA_0_DISPATCHER_READ_DESCRIPTOR_SLAVE_BASE, 0xC, 0x80004000);
+
+
+
+					SET_READ_CSR, SET_READ_CSR+1:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_CSR + 4;// issue reset dispatcher
+						data_write <= 32'h00000002;
+						be <= 4'b1111;
+					end
+
+					SET_READ_CSR+100, SET_READ_CSR+101:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_CSR + 0;//clear all the status
+						data_write <= 0;
+						be <= 4'b1111;
+					end
+
+					SET_READ_CSR+200, SET_READ_CSR+201:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_CSR + 4; // set IRQ enable
+						data_write <= 32'h10;
+						be <= 4'b1111;
+					end
+
+
+					SET_READ_CSR+300, SET_READ_CSR+301:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_CSR + 0;//clear all the status
+						data_write <= 0;
+						be <= 4'b1111;
+					end
+
+
+
+
+
+					SET_READ_CSR+400, SET_READ_CSR+401:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= PRBS_PATTERN_CHECKER_BASE + 8; // sending GO command to generator
+						data_write <= 32'h01000000;
+						be <= 4'b1000;
+					end
+
+
+					// writing descriptor from here
+					SET_READ_DIS, SET_READ_DIS+1:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_DESCRIPTOR + 0;
+						data_write <= 0; // get data from.
+						be <= 4'b1111;
+					end
+
+					SET_READ_DIS+100, SET_READ_DIS+101:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_DESCRIPTOR + 4;
+						data_write <= 0; // location to write to
+						be <= 4'b1111;
+					end
+
+					SET_READ_DIS+200, SET_READ_DIS+201:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_DESCRIPTOR + 8;
+						data_write <= mem_span; // size to write
+						be <= 4'b1111;
+					end
+
+					SET_READ_DIS+300:begin
+						csn <= 1'b0;
+						wen <= 1'b0;
+						oen <= 1'b1;
+						address <= DISPATCHER_READ_DESCRIPTOR + 12;
+						data_write <= 32'h80004000;
+						be <= 4'b1111;
+					end
+					
+					SET_READ_DIS+305:begin
+						wait_for_write <= 1;
+					end
+
+
+					default:begin
+						csn <= 1'b1;
+						wen <= 1'b1;
+						oen <= 1'b1;
+						address <= 0;
+						data_write <= 0;
+						be <= 4'b0000;
+						reset_out_int <= 0;
+					end
+
+					endcase
+				end // end of irq
+
+				//				if(irq == 1)begin
+				if(irq_int == 1)begin
+					command <= 0;
+				end else if(csn == 0 & waitrequest_in == 1)begin
+					command <= command;
+				end else if(wait_for_write == 1)begin
+					command <= command;
+					//				end else if(waitrequest_in != 1 & wait_for_write != 1)begin
+				end else begin
+					command <= command + 1;
+				end
+
+
+			end // end of irq_int   and    irq_write_int == 1
+			else begin
+				csn <= 1'b1;
+				wen <= 1'b1;
+				oen <= 1'b1;
+				address <= 0;
+				data_write <= 0;
+				be <= 4'b0000;
+				reset_out_int <= 0;
+				command <= 0;
+				wait_for_write <= 0;
+			end // end of count == 18000 & process_start == 1
+		end // end of reset_n
+	end // end of always
+  
+endmodule
+
+
