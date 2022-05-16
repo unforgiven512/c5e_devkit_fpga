@@ -1,0 +1,8 @@
+[submodule "examples/max5/c5e_dev_max5"]
+	path = examples/max5/c5e_dev_max5
+	url = https://github.com/unforgiven512/c5e_dev_max5.git
+	branch = master
+[submodule "examples/golden_top/c5e_dev_golden_top"]
+	path = examples/golden_top/c5e_dev_golden_top
+	url = https://github.com/unforgiven512/c5e_dev_golden_top.git
+	branch = master
